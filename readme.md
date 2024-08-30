@@ -1,6 +1,6 @@
 # Purview Bulk Import
 
-Tool for importing and exporting lists of entities for Microsoft Purview
+Tools for importing and exporting lists of entities for Microsoft Purview
 
 This tool is built for windows and is a command line application.
 

@@ -1,6 +1,6 @@
 # Purview Bulk Import
 
-Tools for importing and exporting lists of entities for Microsoft Purview
+Tool for importing and exporting lists of entities for Microsoft Purview
 
 This tool is built for windows and is a command line application.
 
@@ -51,6 +51,8 @@ Commands:
 Set the credentials for the migration tool
 
 There are specific required parameters for this command, and this is required before any of the other commands can be run.
+
+More detailed instructions for this command can be found [here](/Macula-Systems-LLC/purview-automation/blob/master/credentials.md).
 
 *Parameters:*
 

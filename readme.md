@@ -52,7 +52,7 @@ Set the credentials for the migration tool
 
 There are specific required parameters for this command, and this is required before any of the other commands can be run.
 
-More detailed instructions for this command can be found [here](/Macula-Systems-LLC/purview-automation/blob/master/credentials.md).
+More detailed instructions for this command can be found [here](credentials.md).
 
 *Parameters:*
 

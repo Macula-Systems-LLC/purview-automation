@@ -60,7 +60,7 @@ You will also need your tenant id, a guid from your azure subscription that host
 
 for your azure purview url parameter, you will need to log into the azure portal, and go to the Purview Properties page and navigate to Settings > Properties.  Look for the atlas endpoint property, and copy that value, without the /catalog at the end of the url.  This is the value to use for your --azure-purview-url parameter when setting credentials.
 
-![image-20240831094342664](./portalpurivew.png)
+![image-20240831094342664](./portalpurivew.png?v1)
 
 
 

@@ -12,7 +12,7 @@ Here is the help information for context of what the credentials command looks l
 
 The Client Secret is encrypted using the windows DPAPI, so if the file gets moved to a different user, or a different computer, it will not work, and will need to be regenerated for that user/computer.
 
-## credentials
+## credentials command
 
 Set the credentials for the migration tool
 

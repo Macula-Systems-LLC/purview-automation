@@ -1,6 +1,6 @@
 # Credentials
 
-Service Principal Account
+## Service Principal Account
 
 Currently these applications only support a service principal account for authentication to both the Azure Purview and Microsoft Purview api's.
 

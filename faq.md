@@ -4,9 +4,9 @@ We continue to add to the list of FAQ's so please check back again if you're que
 
 1. [**What is the availability of the tool?**](#what-is-the-availability-of-the-tool)
 2. [**How do users access the tool?**](#how-do-users-access-the-tool)
-3. [**Will the tool clearly state what is supported versus what is not, especially concerning glossary, meta model, and old concepts?**](#will-the-tool-clearly-state-what-is-supported-versus-what-is-not-especially-concerning-glossary-meta-model-and-old-concepts)
+3. [**What can the tool support, especially concerning glossary, meta model, and old concepts?**](#what-can-the-tool-support-especially-concerning-glossary-meta-model-and-old-concepts)
 4.  [**Does the tool create governance domains, data products, or other constructs if they don't exist, or do they need to be pre-created?**](#does-macula-purview-automate-create-governance-domains-data-products-or-other-constructs-if-they-dont-exist-or-do-they-need-to-be-pre-constructed)
-5.  [**What kind of permissions does the tool require, and how is it managed?**](#what-kind-of-permissions-does-the-tool-require-and-how-is-it-managed-in-particularly-regarding-app-registration-and-credentials)
+5.  [**What kind of permissions does the tool require, and how is it managed particularly regarding app registration and credentials?**](#what-kind-of-permissions-does-the-tool-require-and-how-is-it-managed-in-particularly-regarding-app-registration-and-credentials)
 6.  [**How are managed attributes handled by the tool?**](#how-are-managed-attributes-handled-by-the-tool)
 7.  [**Is there a rollback option if something goes wrong during migration?**](#is-there-a-rollback-option-if-something-goes-wrong-during-migration)
 8.  [**How will the tool handle security and audit requirements, particularly regarding data export/import?**](#how-will-the-tool-handle-security-and-audit-requirements-particularly-regarding-data-exportimport)

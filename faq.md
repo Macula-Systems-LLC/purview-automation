@@ -10,10 +10,9 @@ We continue to add to the list of FAQ's so please check back again if you're que
 6.  [**How are managed attributes handled by the tool?**](#how-are-managed-attributes-handled-by-the-tool)
 7.  [**Is there a rollback option if something goes wrong during migration?**](#is-there-a-rollback-option-if-something-goes-wrong-during-migration)
 8.  [**How will the tool handle security and audit requirements, particularly regarding data export/import?**](#how-will-the-tool-handle-security-and-audit-requirements-particularly-regarding-data-exportimport)
-9.  [**Will there be a UX or UI around the tool, or will it remain command-line based?**](#will-there-be-a-ux-or-ui-around-the-tool-or-will-it-remain-command-line-based)
-10.  [**Can the tool handle hierarchical glossaries from the old system?**](#can-the-tool-handle-hierarchical-glossaries-from-the-old-system)
-11.  [**How does the tool handle error validation, especially when data products or assets are not created as expected?**](#how-does-the-tool-handle-error-validation-especially-when-data-products-or-assets-are-not-created-as-expected)
-12.  [**What is the process for adding business domain owners and ensuring proper permissions?**](#what-is-the-process-for-adding-business-domain-owners-and-ensuring-proper-permissions)
+9.  [**Can the tool handle hierarchical glossaries from the old system?**](#can-the-tool-handle-hierarchical-glossaries-from-the-old-system)
+10.  [**How does the tool handle error validation, especially when data products or assets are not created as expected?**](#how-does-the-tool-handle-error-validation-especially-when-data-products-or-assets-are-not-created-as-expected)
+11.  [**What is the process for adding business domain owners and ensuring proper permissions?**](#what-is-the-process-for-adding-business-domain-owners-and-ensuring-proper-permissions)
 
 
 

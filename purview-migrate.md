@@ -185,19 +185,19 @@ Either `--map-glossaries` OR `--single-governance-domain` is required to specify
 >
 > If you filter terms and do NOT filter glossaries, in conjunction with the --map-glossaries parameter, ALL glossaries will be created in the downstream system, but will not have any terms unless the terms match this --filter-terms criteria.
 
-> `--business-domain-type <TYPE>`
+> `--governance-domain-type <TYPE>`
 >
 > *Example:* 
 >
-> `--business-domain-type DataDomain` 
+> `--governance-domain-type DataDomain` 
 >
 > The type of governance domain(s) to create as they are created.  If not provided, FunctionalUnit will be used. Options are: FunctionalUnit, LineOfBusiness, DataDomain, Regulatory, Project.
 
-> `--business-domain-status <STATUS>`
+> `--governance-domain-status <STATUS>`
 >
 > *Example:* 
 >
-> `--business-domain-status Draft` 
+> `--governance-domain-status Draft` 
 >
 > The status of business domain when created.  If not provided, Draft will be used. Options are: Draft, Published, Expired
 

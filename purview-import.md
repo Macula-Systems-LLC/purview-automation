@@ -27,9 +27,9 @@ Commands:
 - [credentials](#credentials)
 - [lookup-user](#lookup-user)
 - [list-assets](#list-assets)
-- [list-business-domains](#list-business-domains)
-- [add-business-domains](#add-business-domains)
-- [add-business-domain-owners](#add-business-domain-owners)
+- [list-governance-domains](#list-governance-domains)
+- [add-governance-domains](#add-governance-domains)
+- [add-governance-domain-owners](#add-governance-domain-owners)
 - [list-terms](#list-terms)
 - [add-terms](#add-terms)
 - [list-cdes](#list-cdes)
@@ -157,9 +157,9 @@ Examples:
 
 
 
-## list-business-domains
+## list-governance-domains
 
-List all business domains in the Microsoft Purview instance.
+List all governance domains in the Microsoft Purview instance.
 
 *Parameters:*
 
@@ -169,7 +169,7 @@ List all business domains in the Microsoft Purview instance.
 
 *Examples:*
 
-`purview-import list-business-domains --file business_domains.csv`
+`purview-import list-governance-domains --file governance_domains.csv`
 
 
 
@@ -178,9 +178,9 @@ List all business domains in the Microsoft Purview instance.
 
 
 
-## add-business-domains
+## add-governance-domains
 
-Add business domains to the Microsoft Purview instance using the template as input.
+Add governance domains to the Microsoft Purview instance using the template as input.
 
 *Parameters:*
 
@@ -188,11 +188,11 @@ Add business domains to the Microsoft Purview instance using the template as inp
 >
 > This writes the csv template headers directly to the console. It can be piped to a csv file using the > filename.csv
 >
-> The id column is there for the list-business-domains only, leave it blank for the add-business-domains command
+> The id column is there for the list-governance-domains only, leave it blank for the add-governance-domains command
 
 > `--enums`
 >
-> List enums for use in the business domain creation template
+> List enums for use in the governance domain creation template
 
 > `--file <FILE>`
 >
@@ -206,17 +206,17 @@ Add business domains to the Microsoft Purview instance using the template as inp
 
 [Status](#status)
 
-[Business Domain type](#business-domain-type)
+[governance Domain type](#governance-domain-type)
 
 *Examples:*
 
-`purview-import add-business-domains --template`
+`purview-import add-governance-domains --template`
 
-`purview-import add-business-domains --enums`
+`purview-import add-governance-domains --enums`
 
-`purview-import add-business-domains --file new_business_domains.csv`
+`purview-import add-governance-domains --file new_governance_domains.csv`
 
-`purview-import add-business-domains --file new_business_domains.csv --dry-run false`
+`purview-import add-governance-domains --file new_governance_domains.csv --dry-run false`
 
 
 
@@ -225,19 +225,19 @@ Add business domains to the Microsoft Purview instance using the template as inp
 
 
 
-## add-business-domain-owners
+## add-governance-domain-owners
 
-Adds owners to an existing business domain in the Microsoft Purview instance.  By default this adds the user to ALL roles for the business domain. This behavior is intended to save the tedious task of adding themself to all of the individual roles.
+Adds owners to an existing governance domain in the Microsoft Purview instance.  By default this adds the user to ALL roles for the governance domain. This behavior is intended to save the tedious task of adding themself to all of the individual roles.
 
-This does not use an import file, but is just an ad-hoc tool to add a user to be the owner of a business domain. This helps for giving access to all aspects of the business domain.
+This does not use an import file, but is just an ad-hoc tool to add a user to be the owner of a governance domain. This helps for giving access to all aspects of the governance domain.
 
 The `--owner-only` flag indicates that the user should not be added to ALL the roles, just the owner role and still has the option of manually assigning themselves roles, but the additional roles are not assigned automatically.
 
 *Parameters:*
 
-> `-d` or `--business-domain-id <BUSINESS_DOMAIN_ID>`
+> `-d` or `--governance-domain-id <GOVERNANCE_DOMAIN_ID>`
 >
-> Specify the business domain guid to add owners to
+> Specify the governance domain guid to add owners to
 
 > `-o` or `--owners <OWNERS>`
 >
@@ -245,11 +245,11 @@ The `--owner-only` flag indicates that the user should not be added to ALL the r
 
 > `--owner-only`
 >
-> Only add owners to the business domain owner role, not to all roles for the business domain
+> Only add owners to the governance domain owner role, not to all roles for the governance domain
 
 *Examples:*
 
-`purview-import add-business-domain-owners -d 5d32b66f-809b-4199-a790-3dc3045c4f48 --owners
+`purview-import add-governance-domain-owners -d 5d32b66f-809b-4199-a790-3dc3045c4f48 --owners
 test@emaildomain.com,296f90df-3cd5-4ec2-8de9-24b262e9286f`
 
 ------
@@ -288,11 +288,11 @@ Add glossary terms to the Microsoft Purview instance using the csv template as i
 >
 > This writes the csv template headers directly to the console. It can be piped to a csv file using the > filename.csv
 >
-> The id column is there for the list-business-domains only, leave it blank for the add-business-domains command
+> The id column is there for the list-governance-domains only, leave it blank for the add-governance-domains command
 
 > `--enums`
 >
-> List enums for use in the business domain creation template
+> List enums for use in the governance domain creation template
 
 > `--file <FILE>`
 >
@@ -346,11 +346,11 @@ Add critical data elements to the Microsoft Purview instance using the csv templ
 >
 > This writes the csv template headers directly to the console. It can be piped to a csv file using the > filename.csv
 >
-> The id column is there for the list-business-domains only, leave it blank for the add-business-domains command
+> The id column is there for the list-governance-domains only, leave it blank for the add-governance-domains command
 
 > `--enums`
 >
-> List enums for use in the business domain creation template
+> List enums for use in the governance domain creation template
 
 > `--file <FILE>`
 >
@@ -410,11 +410,11 @@ Add data products to the Microsoft Purview instance using the csv template as in
 >
 > This writes the csv template headers directly to the console. It can be piped to a csv file using the > filename.csv
 >
-> The id column is there for the list-business-domains only, leave it blank for the add-business-domains command
+> The id column is there for the list-governance-domains only, leave it blank for the add-governance-domains command
 
 > `--enums`
 >
-> List enums for use in the business domain creation template
+> List enums for use in the governance domain creation template
 
 > `--file <FILE>`
 >
@@ -445,7 +445,7 @@ Add data products to the Microsoft Purview instance using the csv template as in
 
 ## add-data-product-terms
 
-Add data product terms relationship to data products to the Microsoft Purview instance.  This requires the data products and the terms are already created.  This will associate them and are specified by name and business domain.
+Add data product terms relationship to data products to the Microsoft Purview instance.  This requires the data products and the terms are already created.  This will associate them and are specified by name and governance domain.
 
 *Parameters:*
 
@@ -453,11 +453,11 @@ Add data product terms relationship to data products to the Microsoft Purview in
 >
 > This writes the csv template headers directly to the console. It can be piped to a csv file using the > filename.csv
 >
-> The id column is there for the list-business-domains only, leave it blank for the add-business-domains command
+> The id column is there for the list-governance-domains only, leave it blank for the add-governance-domains command
 
 > `--enums`
 >
-> List enums for use in the business domain creation template
+> List enums for use in the governance domain creation template
 
 > `--file <FILE>`
 >
@@ -488,11 +488,11 @@ Add data asset relationships to data products in the Microsoft Purview instance.
 >
 > This writes the csv template headers directly to the console. It can be piped to a csv file using the > filename.csv
 >
-> The id column is there for the list-business-domains only, leave it blank for the add-business-domains command
+> The id column is there for the list-governance-domains only, leave it blank for the add-governance-domains command
 
 > `--enums`
 >
-> List enums for use in the business domain creation template
+> List enums for use in the governance domain creation template
 
 > `--file <FILE>`
 >
@@ -523,11 +523,11 @@ Add data asset column relationships to the CDE's in the Microsoft Purview instan
 >
 > This writes the csv template headers directly to the console. It can be piped to a csv file using the > filename.csv
 >
-> The id column is there for the list-business-domains only, leave it blank for the add-business-domains command
+> The id column is there for the list-governance-domains only, leave it blank for the add-governance-domains command
 
 > `--enums`
 >
-> List enums for use in the business domain creation template
+> List enums for use in the governance domain creation template
 
 > `--file <FILE>`
 >
@@ -555,7 +555,7 @@ Add data asset column relationships to the CDE's in the Microsoft Purview instan
 - Draft
 - Expired
 
-#### Business Domain Type
+#### Governance Domain Type
 
 - FunctionalUnit
 - LineOfBusiness

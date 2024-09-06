@@ -42,6 +42,8 @@ A robust import utility that provides the greatest flexibility supporting the cr
 
 For more detailed information:
 
+[Frequently Asked Questions](./faq.md)
+
 [Credentials](./credentials.md)
 
 [Purview Migrate](./purview-migrate.md)

@@ -18,7 +18,7 @@ We continue to add to the list of FAQ's so please check back again if you're que
 
 ## What is the availability of the tool? 
 
-Macula Purview Automate V1 will be publicly available on 9/9/24 for free to customers and partners.  
+Macula Purview Automate V1 will be publicly available on 9/12/2024 for free to customers.  
 
 ## How do users access the tool?
 
@@ -59,5 +59,4 @@ Prior to committing changes, users are presented the to-be modifications for the
 ## What is the process for adding governance domain owners and ensuring proper permissions?
 
 Users have the option when migrating Glossaries and Terms to retain their same ownership or assign them to different owners.  If creating new Governance Domains, new owners are assigned at that time.
-
 

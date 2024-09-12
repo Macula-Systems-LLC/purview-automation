@@ -39,12 +39,12 @@ Commands:
 - [add-data-product-terms](#add-data-product-terms)
 - [add-data-product-assets](#add-data-product-assets)
 - [add-cde-columns](#add-cde-columns)
-- list-okrs
-- add-okrs
-- list-key-results
-- add-key-results
-- list-okr-dp
-- add-okr-dp
+- [list-okrs](#list-okrs)
+- [add-okrs](#add-okrs)
+- [list-key-results](#list-key-results)
+- [add-key-results](#add-key-results)
+- [list-okr-dp](#list-okr-dp)
+- [add-okr-dp](#add-okr-dp)
 
 
 ------

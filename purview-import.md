@@ -39,6 +39,12 @@ Commands:
 - [add-data-product-terms](#add-data-product-terms)
 - [add-data-product-assets](#add-data-product-assets)
 - [add-cde-columns](#add-cde-columns)
+- list-okrs
+- add-okrs
+- list-key-results
+- add-key-results
+- list-okr-dp
+- add-okr-dp
 
 
 ------
@@ -288,11 +294,10 @@ Add glossary terms to the Microsoft Purview instance using the csv template as i
 >
 > This writes the csv template headers directly to the console. It can be piped to a csv file using the > filename.csv
 >
-> The id column is there for the list-governance-domains only, leave it blank for the add-governance-domains command
 
 > `--enums`
 >
-> List enums for use in the governance domain creation template
+> List enums for use in the add terms creation template
 
 > `--file <FILE>`
 >
@@ -346,11 +351,10 @@ Add critical data elements to the Microsoft Purview instance using the csv templ
 >
 > This writes the csv template headers directly to the console. It can be piped to a csv file using the > filename.csv
 >
-> The id column is there for the list-governance-domains only, leave it blank for the add-governance-domains command
 
 > `--enums`
 >
-> List enums for use in the governance domain creation template
+> List enums for use in the add cdes creation template
 
 > `--file <FILE>`
 >
@@ -410,11 +414,10 @@ Add data products to the Microsoft Purview instance using the csv template as in
 >
 > This writes the csv template headers directly to the console. It can be piped to a csv file using the > filename.csv
 >
-> The id column is there for the list-governance-domains only, leave it blank for the add-governance-domains command
 
 > `--enums`
 >
-> List enums for use in the governance domain creation template
+> List enums for use in the add data products creation template
 
 > `--file <FILE>`
 >
@@ -453,11 +456,10 @@ Add data product terms relationship to data products to the Microsoft Purview in
 >
 > This writes the csv template headers directly to the console. It can be piped to a csv file using the > filename.csv
 >
-> The id column is there for the list-governance-domains only, leave it blank for the add-governance-domains command
 
 > `--enums`
 >
-> List enums for use in the governance domain creation template
+> List enums for use in the add data product terms relationship creation template
 
 > `--file <FILE>`
 >
@@ -488,11 +490,10 @@ Add data asset relationships to data products in the Microsoft Purview instance.
 >
 > This writes the csv template headers directly to the console. It can be piped to a csv file using the > filename.csv
 >
-> The id column is there for the list-governance-domains only, leave it blank for the add-governance-domains command
 
 > `--enums`
 >
-> List enums for use in the governance domain creation template
+> List enums for use in the add data product asset relationship creation template
 
 > `--file <FILE>`
 >
@@ -523,11 +524,10 @@ Add data asset column relationships to the CDE's in the Microsoft Purview instan
 >
 > This writes the csv template headers directly to the console. It can be piped to a csv file using the > filename.csv
 >
-> The id column is there for the list-governance-domains only, leave it blank for the add-governance-domains command
 
 > `--enums`
 >
-> List enums for use in the governance domain creation template
+> List enums for use in the add cde columns creation template
 
 > `--file <FILE>`
 >
@@ -542,6 +542,176 @@ Add data asset column relationships to the CDE's in the Microsoft Purview instan
 `purview-import add-data-product-assets --file new_dataproductassets.csv`
 
 `purview-import add-data-product-assets --file new_dataproductassets.csv --dry-run false`
+
+------
+
+
+
+
+## list-okrs
+
+List all OKRs in the Microsoft Purview instance
+
+*Parameters:*
+
+> `--file <FILE>`
+>
+> The file to write the csv output to
+
+*Examples:*
+
+`purview-import list-okrs`
+
+`purview-import list-okrs --file allokrs.csv`
+
+
+
+------
+
+
+
+## add-okrs
+
+Add okrs to the Microsoft Purview instance using the csv template as input.
+
+*Parameters:*
+
+> `--template`
+>
+> This writes the csv template headers directly to the console. It can be piped to a csv file using the > filename.csv
+>
+
+> `--enums`
+>
+> List enums for use in the add okrs creation template
+
+> `--file <FILE>`
+>
+> The csv file that contains the data to import
+
+> `--dry-run false`
+>
+> specifying whether a command is a dry run or not, the default is true, and must be specified as false explicitly when the command is intended to import data
+
+*Enums:*
+
+[Status](#status)
+
+*Examples:*
+
+`purview-import add-okrs --file new_dataproducts.csv`
+
+`purview-import add-okrs --file new_dataproducts.csv --dry-run false`
+
+------
+
+## list-key-results
+
+List all  OKR Key Results in the Microsoft Purview instance
+
+*Parameters:*
+
+> `--file <FILE>`
+>
+> The file to write the csv output to
+
+*Examples:*
+
+`purview-import list-key-results`
+
+`purview-import list-key-results--file allkeyresults.csv`
+
+
+
+------
+
+
+
+## add-key-results
+
+Add OKR Key Results to the Microsoft Purview instance using the csv template as input.
+
+*Parameters:*
+
+> `--template`
+>
+> This writes the csv template headers directly to the console. It can be piped to a csv file using the > filename.csv
+>
+
+> `--enums`
+>
+> List enums for use in the add key results creation template
+
+> `--file <FILE>`
+>
+> The csv file that contains the data to import
+
+> `--dry-run false`
+>
+> specifying whether a command is a dry run or not, the default is true, and must be specified as false explicitly when the command is intended to import data
+
+*Enums:*
+
+[Status](#status-key-results)
+
+*Examples:*
+
+`purview-import add-key-results --file newkeyresults.csv`
+
+`purview-import add-keyresults --file newkeyresults.csv --dry-run false`
+
+------
+
+## list-okr-dp
+
+List all Data Products associated with OKRs
+
+*Parameters:*
+
+> `--file <FILE>`
+>
+> The file to write the csv output to
+
+*Examples:*
+
+`purview-import list-okr-dp`
+
+`purview-import list-okr-dp--file allokrdataproducts.csv`
+
+
+
+------
+
+
+
+## add-okr-dp
+
+Add Data Product / OKR Relationships to the Microsoft Purview instance using the csv template as input.
+
+*Parameters:*
+
+> `--template`
+>
+> This writes the csv template headers directly to the console. It can be piped to a csv file using the > filename.csv
+>
+
+> `--enums`
+>
+> List enums for use in the okr/data product relationships template
+
+> `--file <FILE>`
+>
+> The csv file that contains the data to import
+
+> `--dry-run false`
+>
+> specifying whether a command is a dry run or not, the default is true, and must be specified as false explicitly when the command is intended to import data
+
+*Examples:*
+
+`purview-import add-okr-dp --file newokrdataproducts.csv`
+
+`purview-import add-okr-dp --file newokrdataproducts.csv --dry-run false`
 
 ------
 
@@ -586,3 +756,10 @@ Add data asset column relationships to the CDE's in the Microsoft Purview instan
 - Monthly
 - Quarterly
 - Yearly
+
+#### Status Key Results
+
+- NotTrack
+- OnTrack
+- Behind
+- AtRisk

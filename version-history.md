@@ -1,3 +1,20 @@
+
+# V 0.6.0
+Release Date: 9/19/2024
+
+## New features
+
+- User friendly names for parent/owners when listing governance domains
+- Delete glossaries/terms in previous version (drain old system)
+- Delete all terms in a governance domain (like a bulk undo for migrating terms)
+- allow email address for --add-owners parameter when migrating terms
+
+## Issues Resolved
+
+- Error messaging improvements
+
+---
+
 # V 0.5.0
 Release Date: 9/16/2024
 
@@ -14,16 +31,3 @@ Release Date: 9/16/2024
 - Escaped formatting for list glossaries
 - Resolved inclusion of data product owner when adding owner-only permissions
 
-# V 0.6.0
-Release Date: 9/19/2024
-
-## New features
-
-- User friendly names for parent/owners when listing governance domains
-- Delete glossaries/terms in previous version (drain old system)
-- Delete all terms in a governance domain (like a bulk undo for migrating terms)
-- allow email address for --add-owners parameter when migrating terms
-
-## Issues Resolved
-
-- Error messaging improvements

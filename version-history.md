@@ -1,4 +1,15 @@
 
+
+# V 1.0
+Release Date: 9/23/2024
+
+## New features
+
+- ability to list-glossaries and create file ready to import using add-terms
+- Signed with EV certificate, ensuring integrity and authenticity, reducing warnings.
+
+---
+
 # V 0.6.0
 Release Date: 9/19/2024
 

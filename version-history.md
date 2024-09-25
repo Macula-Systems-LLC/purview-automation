@@ -1,6 +1,15 @@
+# V 1.0.1.0
+Release Date: 9/25/2024
 
+## New features
 
-# V 1.0
+## Issues Resolved
+
+- Account for multiple selections during migration. When a term template with Multiple Choice datatype is used and the term has multiple items selected, the migrate-terms as well as the export-term-template-values command handle it appropriately
+
+---
+
+# V 1.0.0.0
 Release Date: 9/23/2024
 
 ## New features

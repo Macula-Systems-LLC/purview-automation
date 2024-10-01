@@ -14,6 +14,7 @@ We continue to add to the list of FAQ's so please check back again if you're que
 10. [**How does the tool handle error validation, especially when data products or assets are not created as expected?**](#how-does-the-tool-handle-error-validation-especially-when-data-products-or-assets-are-not-created-as-expected)
 11. [**What is the process for adding business domain owners and ensuring proper permissions?**](#what-is-the-process-for-adding-business-domain-owners-and-ensuring-proper-permissions)
 12. **[Do the templates require the headers when running add-* commands](#do-the-templates-require-the-headers-when-running-add--commands)**
+13. **[How do i grant access for adding business concepts to existing Governance Domains?](#how-do-i-grant-access-for-adding-business-concepts-to-existing-governance-domains)**
 
 
 

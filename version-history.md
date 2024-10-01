@@ -1,7 +1,23 @@
-# V 1.0.1.0
+# V 1.0.3.0
+
 Release Date: 9/25/2024
 
-## New features
+## Issues Resolved
+
+- fixed example for migrate-terms when specifying single-governance-domain, example showed single-business
+
+# V 1.0.2.0
+
+Release Date: 9/26/2024
+
+## Issues Resolved
+
+- fixed for complex term template value exports in `purview-migrate export-term-template-values`
+
+
+
+# V 1.0.1.0
+Release Date: 9/25/2024
 
 ## Issues Resolved
 

@@ -317,6 +317,24 @@ Add glossary terms to the Microsoft Purview instance using the csv template as i
 
 ------
 
+## delete-terms
+
+Delete all glossary terms within a specified governance domain in the Microsoft Purview instance
+
+This currently can only delete ALL terms from the governance domain.
+
+*Parameters:*
+
+> `--governance-domain "The Domain Name"`
+>
+> The governance domain that the terms should be deleted from
+
+*Examples:*
+
+`purview-import --governance-domain "The Domain Name"`
+
+------
+
 
 
 

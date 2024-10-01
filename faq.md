@@ -64,3 +64,11 @@ Users have the option when migrating Glossaries and Terms to retain their same o
 ## Do the templates require the headers when running add-* commands?
 
 Yes, the templates, when filled out require that the header row is present for using as input to importing data using the purview-import tool
+
+## How do i grant access for adding business concepts to existing Governance Domains?
+
+If you wish to add terms, or other business concepts to an existing business domain, the principal user must be assigned to the following roles within the governance domain itself.
+
+- Governance Domain Owners
+- Governance Domain Readers
+- Data Steward

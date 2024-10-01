@@ -271,7 +271,27 @@ Either `--map-glossaries` OR `--single-governance-domain` is required to specify
 
 `purview-migrate migrate-terms --filter-glossaries "glossary1,glossary2" --filter-terms "term1,term2" --map-glossaries --business-domain-type FunctionalUnit --business-domain-status Draft --map-stewards --map-experts --add-owners "f135749f-eed0-4cb9-1141-9f6a574212c0,3abe053d-c0c3-4c5a-807c-4d7d448e2532" --map-term-stewards --map-term-experts --dry-run`
 
-`purview-migrate migrate-terms --filter-glossaries "glossary1,glossary2" --filter-terms "term1,term2" --single-business-domain "Destination Business Domain" --business-domain-type FunctionalUnit --business-domain-status Draft --map-stewards --map-experts --add-owners "user@domain.com,user2@domain.com,3abe053d-c0c3-4c5a-807c-4d7d448e2532"`
+`purview-migrate migrate-terms --filter-glossaries "glossary1,glossary2" --filter-terms "term1,term2" --single-governance-domain "Destination Business Domain" --business-domain-type FunctionalUnit --business-domain-status Draft --map-stewards --map-experts --add-owners "user@domain.com,user2@domain.com,3abe053d-c0c3-4c5a-807c-4d7d448e2532"`
 
 ------
 
+
+
+
+## delete-glossary
+
+Delete glossaries from the source Azure Purview instance
+
+This will delete all glossary terms and the glossary from the Azure Purview instance.
+
+*Parameters:*
+
+> `--delete-terms true`
+>
+> setting this parameter to true indicates that all terms in the glossary will be deleted before the glossary itself.  This command will not delete a glossary with any terms in it without this being set to true.
+
+*Examples:*
+
+`purview-migrate delete-glossary`*
+
+`purview-migrate delete-glossary --delete-terms true`

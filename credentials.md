@@ -2,15 +2,15 @@
 
 ## Service Principal Account
 
-Currently these applications only support a service principal account for authentication to both the Azure Purview and Microsoft Purview api's.
+The Macula Purview Automate applications utilizes a service principal account for authentication to your Purview environment.  An Azure service principal is a security identity created for applications, services, or automated tools like Macula Purview Automate to access Azure resources securely, namely the Azure Purview and Purview Portal API's, and control the permissions to access the environment.
 
-Both applications can share the credentials file, so this only needs to be created once.  Both applications have the credentials command so it doesn't matter which application creates it.  purview-migrate.exe or purview-import.exe.
+Once the service principal is established, either application, purview-migrate.exe or purview-import.exe, can create the proper credentials using the command detailed below.  Both applications share the same credentials thus only requiring it to be created once.  
 
-When you run the credentials command it will generate a credentials.json file, that file needs to be in the same folder that the application is in.
+When you run the credentials command it will generate a credentials.json file in the same application folder and must remain there for the applications to authenticate.
 
-Here is the help information for context of what the credentials command looks like.
+For establishing a service principal in your Purivew environment, please see Microsoft help documention found here: https://learn.microsoft.com/en-us/purview/tutorial-using-rest-apis
 
-The Client Secret is encrypted using the windows DPAPI, so if the file gets moved to a different user, or a different computer, it will not work, and will need to be regenerated for that user/computer.
+Also note: When the credentials.json file is created, the Client Secret is encrypted using the local Windows DPAPI.  This means that if the credentials file is moved to a different user, or a different computer, it will not work and will need to be regenerated for that user/computer.
 
 ## credentials command
 

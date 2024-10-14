@@ -4,7 +4,7 @@ This is a suite of tools to help migrate your data from the Azure Purview portal
 
 ### Purview Migrate:
 
-A streamlined tool for migrating  glossaries and glossary terms from Azure Purview Classic, ensuring that  your data is accurately and efficiently integrated into Microsoft  Purview’s comprehensive governance framework. 
+A streamlined tool for migrating  glossaries and glossary terms from Azure Purview Classic, ensuring that your data is accurately and efficiently integrated into Microsoft  Purview’s comprehensive governance framework. 
 
 - Create Governance Domains from Glossaries
 - Migrate classic Glossary Terms to new Terms
@@ -29,7 +29,7 @@ A robust import utility that provides the greatest flexibility supporting the cr
 
 ### Additional features
 
-- **Secure** - The Macula Purview Automate solution runs using a service principal for authentication and authorization. You will need some assistance from  your Entra Admin to help register a temporary application and service  principal that is  assigned permissions on your Microsoft Purview  portal.
+- **Secure** - The Macula Purview Automate solution runs using a service principal for authentication and authorization. You will need some assistance from  your Entra Admin to help register a temporary application and service principal that is assigned permissions on your Microsoft Purview portal.
 - **Traceable** - The Macula Purview Automate solution keeps a localized record of all modifications to track changes to your Purview portal that can be used for auditing purposes. 
 - **Valid** - Macula Purview Automate helps ensure your data is modeled and accurately imported.
 - **Pre-Commits** - Review your modifications before committing. 

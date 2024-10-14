@@ -8,7 +8,7 @@ Once the service principal is established, either application, purview-migrate.e
 
 When you run the credentials command it will generate a credentials.json file in the same application folder and must remain there for the applications to authenticate.
 
-For establishing a service principal in your Purivew environment, please see Microsoft help documention found here: https://learn.microsoft.com/en-us/purview/tutorial-using-rest-apis
+For establishing a service principal in your Purivew environment, please see Microsoft help documentation found here: https://learn.microsoft.com/en-us/purview/tutorial-using-rest-apis
 
 Also note: When the credentials.json file is created, the Client Secret is encrypted using the local Windows DPAPI.  This means that if the credentials file is moved to a different user, or a different computer, it will not work and will need to be regenerated for that user/computer.
 

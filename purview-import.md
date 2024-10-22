@@ -28,10 +28,12 @@ Commands:
 - [lookup-user](#lookup-user)
 - [list-assets](#list-assets)
 - [list-governance-domains](#list-governance-domains)
+- [delete-governance-domain](#delete-governance-domain)
 - [add-governance-domains](#add-governance-domains)
 - [add-governance-domain-owners](#add-governance-domain-owners)
 - [list-terms](#list-terms)
 - [add-terms](#add-terms)
+- [delete-terms](#delete-terms)
 - [list-cdes](#list-cdes)
 - [add-cdes](#add-cdes)
 - [list-data-products](#list-data-products)
@@ -178,6 +180,18 @@ List all governance domains in the Microsoft Purview instance.
 `purview-import list-governance-domains --file governance_domains.csv`
 
 
+
+------
+
+## delete-governance-domain
+
+Delete a governance domain in the Microsoft Purview instance.  The domain cannot have any child entities such as glossary terms or data products or OKR's. You can specify the Domain Name or the Domain Id
+
+*Examples:*
+
+`purview-import delete-governance-domain -d "My Governance Domain"`
+
+`purview-import delete-governance-domain -d 7417a2b8-7fe4-4307-b6b2-a36706ca4fd3`
 
 ------
 

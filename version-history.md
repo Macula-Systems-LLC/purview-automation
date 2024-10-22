@@ -1,6 +1,31 @@
+# V 1.0.5.0
+
+Release Date: 10/22/2024
+
+## New features
+
+- acronyms and resource links supported when importing terms to a governance domain (purview-import)
+- acronyms and resource links moved when migrating terms (purview-migrate)
+
+## Issues Resolved
+
+- fix error when using purview-migrate caused by having 2 terms in the Azure Purview that are the same, even when they are in separate glossaries
+
+# V 1.0.4.0
+
+Release Date: 10/7/2024
+
+## New features
+
+- delete terms and domains using purview-import
+
+## Issues Resolved
+
+- fixed cde-column template, was outputting the okr template when cde-column template was requested
+
 # V 1.0.3.0
 
-Release Date: 9/25/2024
+Release Date: 10/1/2024
 
 ## Issues Resolved
 

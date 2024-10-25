@@ -16,6 +16,8 @@ Release Date: 10/25/2024
 - Resolved paging issue when assigning Assets to Product - paging issue occurring with numerous assets 
 - Resolved migration error thrown caused by duplicate Term listing 
 
+# V 1.0.5.0
+
 Release Date: 10/22/2024
 
 ## New features

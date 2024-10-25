@@ -1,4 +1,20 @@
-# V 1.0.5.0
+# V 1.0.6.0
+
+Release Date: 10/25/2024
+
+## New features
+
+- Added Acronyms and Resource Links to operation `purview-migrate list-glossaries --create-import-file` operation
+- Optimized adding Owners
+- Added progression/status indicator for `purview-migrate list-glossaries` command
+
+## Issues Resolved
+
+- Resolved issue with listing duplicate Terms in purview-migrate list-glossaries
+- Resolved issue with +1000 term paging 
+- Resolved paging issue when assigning Ownership - paging issue occurring
+- Resolved paging issue when assigning Assets to Product - paging issue occurring with numerous assets 
+- Resolved migration error thrown caused by duplicate Term listing 
 
 Release Date: 10/22/2024
 

@@ -10,24 +10,25 @@ To view the help, run the command
 
 to view help for a specific command, run the command with the -h parameter
 
-`purview-migrate list-glossar-h`
+`purview-migrate list-glossary -h`
 
-this will display the optional parameters and a description about what they are used for
+to view optional parameters for a specific operation and descriptions of use
 
 
 
-This will help with the migration directly from Azure Purview Glossaries and Terms into Microsoft Purview.
+Purview-Migrate allows you to directly migrate from Azure Purview Glossaries and Terms into Microsoft Purview.
 
 The main scenarios are:
 
 - Migrate Glossaries into Governance Domains
 - Migrate Glossaries into Governance Domains and migrate all Terms under each/any Glossary into the Domain
 - Migrate a subset of terms/glossaries into Governance Domains and Terms (using filtering)
-- Migrate terms into a newly specified Governance Domain (terms can be filtered so not ALL go into the GD)
+- Migrate terms into a newly specified Governance Domain (terms can be filtered so not ALL go into the governance domain)
+- Export term template values for glossary terms (allowing for migration once the Custom Attributes feature is GA)
+- Export glossaries and terms in a format designed for import
+- Delete legacy glossaries
 
-When mapping both Glossaries and Terms, the experts and stewards can be brought along as owners of the Governance Domain and/or Terms respectively.  In addition, new owners can be specified during the migration.
-
-One other feature this tool has, is to be able to export custom term templates along with the terms they are associated with and their values for later export into Microsoft Purview.
+When mapping both Glossaries and Terms, the experts and stewards can be set as owners of the destination Governance Domain and/or Terms respectively.  In addition, new owners can be specified during the migration.
 
 The migrate-terms command has a `--dry-run` parameter, which defaults to true.  This means that the actions that would normally take place will be written to the screen, however no modifications will be made to the system.  This is intentional as a safety mechanism.  When you are ready to run the command and make changes to the destination system, use the flag `--dry-run false` to cause the new data to be sent to the Microsoft Purview instance.
 
@@ -44,6 +45,7 @@ Commands:
 - [list-governance-domains](#list-governance-domains)
 - [export-term-template-values](#export-term-template-values)
 - [migrate-terms](#migrate-terms)
+- [delete-glossary](#delete-glossary)
 
 ------
 
@@ -94,11 +96,13 @@ This is a utility to get a quick view into the source Purview system and see wha
 
 *Parameters:*
 
-> There are no additional parameters for this command
+> `--glossary-filter` 
+>
+> Single glossary name to filter terms.  Can specify either the glossary name or the glossary GUID.
 
 *Examples:*
 
-`purview-migrate list-glossaries`
+`purview-migrate list-glossaries --glossary-filter "My Glossary"`
 
 ------
 

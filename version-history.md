@@ -1,3 +1,20 @@
+# V 1.0.7.0
+
+Release Date: 10/29/2024
+
+## New features
+
+- Progression indicator added when exporting term template values using `purview-migrate export-term-template-values`
+- Added Classic Term resource link to term during migration as reference to legacy term
+- Optimized term validation checks to accelerate term creation time
+- Added new filter for `purview-import list-assets` to support collections and asset types
+- Added Glossary filter for `purview-migrate list-glossaries` command
+
+## Issues Resolved
+
+- Resolved issue occuring during `purview-import add-data-product-assets` causing operation to fail
+
+
 # V 1.0.6.0
 
 Release Date: 10/25/2024

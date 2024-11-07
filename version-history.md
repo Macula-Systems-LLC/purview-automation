@@ -1,8 +1,26 @@
+# V 1.0.8.0
+
+Release Date: 11/07/2024
+
+## New Features
+
+- Cascade delete now supported to bulk delete terms 
+- Allowance for the creation of Terms with duplicate names within the same Governance Domain
+- Support added for explicit Term heirarchy specified in csv import files created using `purview-migrate list-glossaries --create-import-file filename.csv`
+- Bulk update support added for Governance Domain status updates
+- Bulk update support added for Terms status update
+
+## Issues Resolved
+
+- Resolved NEW issue occuring during asset `purview-import add-data-product-assets` causing operation to fail
+
+
+
 # V 1.0.7.0
 
 Release Date: 10/29/2024
 
-## New features
+## New Features
 
 - Progression indicator added when exporting term template values using `purview-migrate export-term-template-values`
 - Added Classic Term resource link to term during migration as reference to legacy term
@@ -19,7 +37,7 @@ Release Date: 10/29/2024
 
 Release Date: 10/25/2024
 
-## New features
+## New Features
 
 - Added Acronyms and Resource Links to operation `purview-migrate list-glossaries --create-import-file` operation
 - Optimized adding Owners
@@ -37,7 +55,7 @@ Release Date: 10/25/2024
 
 Release Date: 10/22/2024
 
-## New features
+## New Features
 
 - acronyms and resource links supported when importing terms to a governance domain (purview-import)
 - acronyms and resource links moved when migrating terms (purview-migrate)
@@ -50,7 +68,7 @@ Release Date: 10/22/2024
 
 Release Date: 10/7/2024
 
-## New features
+## New Features
 
 - delete terms and domains using purview-import
 
@@ -88,7 +106,7 @@ Release Date: 9/25/2024
 # V 1.0.0.0
 Release Date: 9/23/2024
 
-## New features
+## New Features
 
 - ability to list-glossaries and create file ready to import using add-terms
 - Signed with EV certificate, ensuring integrity and authenticity, reducing warnings.
@@ -98,7 +116,7 @@ Release Date: 9/23/2024
 # V 0.6.0
 Release Date: 9/19/2024
 
-## New features
+## New Features
 
 - User friendly names for parent/owners when listing governance domains
 - Delete glossaries/terms in previous version (drain old system)
@@ -114,7 +132,7 @@ Release Date: 9/19/2024
 # V 0.5.0
 Release Date: 9/16/2024
 
-## New features
+## New Features
 
 - Audit log for bulk import
 - Added OKR import

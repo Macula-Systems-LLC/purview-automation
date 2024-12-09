@@ -1,3 +1,35 @@
+# V 1.0.10.2
+
+Release Date: 12/5/2024
+
+## New Features
+
+- Added an override flag option to ignore URL validation when creating credentials.
+- Maintenance update to support recent api updates
+
+## Issues Resolved
+
+- Resolved issue occuring during duplicate term validation edge case
+
+
+# V 1.0.9.0
+
+Release Date: 11/25/2024
+
+## New Features
+
+- Added filter capability to the `purview-migrate list-glossaries` operation to limit glossaries and terms during list or creation of import files
+- Added validation for all required properties during the creation of Data Products: owners, business use, and data product type
+- Added filter capability when exporting term template values using  `purview-migrate export-term-template-values` by glossary and/or specific terms
+- Added validation for the presence of Owner assignment during creation of governance domains and terms during bulk import operation
+- Added allowance for duplicate term names within heirarchy so long as they have different parents
+
+## Issues Resolved
+
+- Resolved issue occuring for displaying special characters to screen when listing term template values
+
+
+
 # V 1.0.8.0
 
 Release Date: 11/07/2024

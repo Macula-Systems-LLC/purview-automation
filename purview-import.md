@@ -146,9 +146,9 @@ Parameters:
 >
 > Filter by asset type, where the asset type matches the string entirely
 
-> `--filter-type-start <FILTER>`
+> `--filter-collection <FILTER>`
 >
-> Filter by asset type, where the asset type starts with the specified string
+> Filter by collection name, where the collection name matches a collection in the domain
 
 Examples:
 
@@ -186,6 +186,10 @@ List all governance domains in the Microsoft Purview instance.
 ## delete-governance-domain
 
 Delete a governance domain in the Microsoft Purview instance.  The domain cannot have any child entities such as glossary terms or data products or OKR's. You can specify the Domain Name or the Domain Id
+
+*Parameters:*
+
+> `-d <Governance Domain>`
 
 *Examples:*
 
@@ -345,7 +349,7 @@ This currently can only delete ALL terms from the governance domain.
 
 *Examples:*
 
-`purview-import --governance-domain "The Domain Name"`
+`purview-import delete-terms --governance-domain "The Domain Name"`
 
 ------
 

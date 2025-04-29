@@ -1,3 +1,32 @@
+# V 1.0.11.0
+
+Release Date: 02/17/2025
+
+## New Features
+
+- Added option to pre-append tenet ID to Purview URL (see option in credentials.json)
+- Removed the auto-heirarchy parents feature that limited the number of children. Now supporting multi-level by specifying parents/child levels using the A_B_C style underscore heirarchy
+
+## Issues Resolved
+
+- Removed API version from URL's where no longer supported
+
+
+# V 1.0.11.0
+
+Release Date: 01/09/2025
+
+## New Features
+
+- Allowing for duplicate terms with different parents to pass validation
+- Removed the auto-heirarchy parents feature that limited the number of children. Now supporting multi-level by specifying parents/child levels using the A_B_C style underscore heirarchy
+- Escaping output for migrating terms in console markup
+
+## Issues Resolved
+
+- Resolved issue caused by underlying preview API when getting policies for governance domains
+
+
 # V 1.0.10.2
 
 Release Date: 12/5/2024

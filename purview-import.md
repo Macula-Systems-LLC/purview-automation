@@ -575,9 +575,9 @@ Add data asset column relationships to the CDE's in the Microsoft Purview instan
 
 *Examples:*
 
-`purview-import add-data-product-assets --file new_dataproductassets.csv`
+`purview-import add-cde-columns --file new_cdecolumns.csv`
 
-`purview-import add-data-product-assets --file new_dataproductassets.csv --dry-run false`
+`purview-import add-cde-columns --file new_cdecolumns.csv --dry-run false`
 
 ------
 

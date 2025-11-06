@@ -1,17 +1,6 @@
-# Macula Purview Automate
+# Macula Purview Automate 2.0
 
-This is a suite of tools to help migrate your data from the Azure Purview portal into the new Microsoft Purview portal, as well as assist in any bulk loading of data into the new Microsoft Purview portal.
-
-### Purview Migrate:
-
-A streamlined tool for migrating  glossaries and glossary terms from Azure Purview Classic, ensuring that your data is accurately and efficiently integrated into Microsoft  Purview’s comprehensive governance framework. 
-
-- Create Governance Domains from Glossaries
-- Migrate classic Glossary Terms to new Terms
-- List and Export classic Terms
-- Export Term Templates
-- Export Assets
-- Assign Domain and Term Owners
+This is a suite of tools to help migrate your data from the Azure Purview portal into the new Microsoft Purview portal, as well as assist in any bulk loading **and managing** of your governance data into the new Microsoft Purview portal.
 
 ### Purview Import:
 
@@ -24,6 +13,9 @@ A robust import utility that provides the greatest flexibility supporting the cr
 - Load and Assign Assets to Data Products
 - Create and Assign Critical Data Elements
 - Assign Owners (all objects)
+- List and Export classic Terms
+- Export Term Templates
+- Export Assets
 
 
 
@@ -36,7 +28,7 @@ A robust import utility that provides the greatest flexibility supporting the cr
 
 
 
-[Available as a download from Maculas website here](https://www.maculasys.com/microsoft-purview)
+[Available now. Contact us here](https://www.maculasys.com/microsoft-purview)
 
 
 
@@ -46,6 +38,7 @@ For more detailed information:
 
 [Credentials](./credentials.md)
 
-[Purview Migrate](./purview-migrate.md)
-
 [Purview Import](./purview-import.md)
+
+[Purview Migrate (depreciated)](./purview-migrate.md)
+

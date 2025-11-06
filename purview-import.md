@@ -25,15 +25,24 @@ In addition, all "add-*" commands also have a `--enums` parameter, when the comm
 Commands:
 
 - [credentials](#credentials)
+- [deactivate-product](#deactivate-product) ⚡
 - [lookup-user](#lookup-user)
+- [search-principals](#search-principals) ⚡
+- [list-glossaries](#list-glossaries) ⚡
+- [delete-glossary](#delete-glossary) ⚡
+- [export-term-template-values](#export-term-template-values) ⚡
 - [list-assets](#list-assets)
 - [list-governance-domains](#list-governance-domains)
 - [delete-governance-domain](#delete-governance-domain)
+- [update-governance-domain-status](#update-governance-domain-status) ⚡
 - [add-governance-domains](#add-governance-domains)
+- [add-domain-roles](#add-domain-roles) ⚡
 - [add-governance-domain-owners](#add-governance-domain-owners)
 - [list-terms](#list-terms)
 - [add-terms](#add-terms)
+- [update-terms](#update-terms) ⚡
 - [delete-terms](#delete-terms)
+- [update-term-status](#update-term-status) ⚡
 - [list-cdes](#list-cdes)
 - [add-cdes](#add-cdes)
 - [list-data-products](#list-data-products)
@@ -47,6 +56,8 @@ Commands:
 - [add-key-results](#add-key-results)
 - [list-okr-dp](#list-okr-dp)
 - [add-okr-dp](#add-okr-dp)
+- [list-custom-attributes](#list-custom-attributes) ⚡
+- [add-custom-attributes](#add-custom-attributes) ⚡
 
 
 ------
@@ -88,6 +99,24 @@ More detailed instructions for this command can be found [here](credentials.md).
 
 ------
 
+⚡ **NEW COMMAND** ⚡
+
+## deactivate-product
+
+Deactivate the product and remove the license from this machine
+
+*Parameters:*
+
+> `-h, --help`
+>
+> Prints help information
+
+*Examples:*
+
+`purview-import deactivate-product`
+
+------
+
 
 
 
@@ -101,7 +130,7 @@ This can be run with the `--user` parameter that could be the Entra object id (g
 
 *Parameters:*
 
-> `--user`
+> `-u, --user`
 >
 > The user identifier, such as an email address or a entra object id for a user
 
@@ -110,6 +139,132 @@ This can be run with the `--user` parameter that could be the Entra object id (g
 `purview-import lookup-user --user 21e8c3e5-5776-4b5b-8cbf-881e8eb5ff3f`
 
 `purview-import lookup-user --user bob@test.com`
+
+------
+
+⚡ **NEW COMMAND** ⚡
+
+## search-principals
+
+Lookup a user, group or service principal using a search string
+
+*Parameters:*
+
+> `-s, --search`
+>
+> The search term, such as part of an email address or name for a user, service principal or group
+
+*Examples:*
+
+`purview-import search-principals -s john`
+
+`purview-import search-principals --search john`
+
+------
+
+⚡ **NEW COMMAND** ⚡
+
+## list-glossaries
+
+List all glossaries in the source Azure Purview instance
+
+*Parameters:*
+
+> `--filter-glossaries`
+>
+> Comma seperated list of source glossaries to filter. If not provided, all glossaries will be listed
+
+> `--filter-terms`
+>
+> Comma seperated list of source terms to filter. If not provided, all terms will be listed. This will respect the --filter-glossaries option if it is specified and only use terms from the glossaries that match the filter
+
+> `--filter-by-parent`
+>
+> Filter for terms whose parent term matches the specified term name
+
+> `--csv`
+>
+> If set, the output will be in CSV format
+
+> `--create-import-file`
+>
+> If set, a csv file will be created with the specified name that matches the purview-import add-terms template
+
+> `-d, --single-governance-domain`
+>
+> When creating the import file, the governance domain to migrate the terms to. If not specified, the glossary name will be used for the Governance Domain name
+
+> `-r, --remove-parent`
+>
+> Remove the original Term's parent when creating the import file
+
+> `--use-glossary-contacts-when-empty`
+>
+> When the term has no contacts, use the glossary contacts as the owners of the term instead
+
+*Examples:*
+
+`purview-import list-glossaries`
+
+`purview-import list-glossaries --csv > glossarylist.csv`
+
+`purview-import list-glossaries --filter-glossaries "my glossary" --filter-terms "my term,other term"`
+
+`purview-import list-glossaries --filter-by-parent "My Parent Term"`
+
+`purview-import list-glossaries --filter-glossaries "my glossary" --filter-by-parent "My Parent Term"`
+
+`purview-import list-glossaries --create-import-file glossary-terms.csv`
+
+------
+
+⚡ **NEW COMMAND** ⚡
+
+## delete-glossary
+
+Delete glossaries from the source Azure Purview instance
+
+*Parameters:*
+
+> `--glossary`
+>
+> The glossary to delete
+
+> `--delete-terms`
+>
+> If set, all terms will be deleted from the glossary before deletion
+
+*Examples:*
+
+`purview-import delete-glossary --glossary glossary1`
+
+`purview-import delete-glossary --glossary glossary1 --delete-terms true`
+
+------
+
+⚡ **NEW COMMAND** ⚡
+
+## export-term-template-values
+
+List all custom term template values in the source Azure Purview instance terms. The results can be saved to a csv file using the --file option
+
+*Parameters:*
+
+> `--filter-glossaries`
+>
+> Comma seperated list of source glossaries to filter. If not provided, all glossaries will be listed
+
+> `--filter-terms`
+>
+> Comma seperated list of source terms to filter. If not provided, all terms will be listed. This will respect the --filter-glossaries option if it is specified and only use terms from the glossaries that match the filter
+
+> `--file`
+>
+> If set, a csv file will be created with the specified name with the term template values
+
+*Examples:*
+
+`purview-import export-term-template-values --file termtemplatevalues.csv`
 
 ------
 
@@ -132,7 +287,7 @@ Parameters:
 
 > `--data-product-file <FILE>`
 >
-> The csv file to write the asset list to, but in the format that is ready for import as data products.
+> The csv file to write the asset list to, but in the format that is ready for import as data products. The data product formatted csv file to write the asset list to
 
 > `--ignore-azp` or `-i`
 >
@@ -142,9 +297,13 @@ Parameters:
 >
 > Only list SQL Azure tables
 
+> `--files-only`
+>
+> Only list File data sources
+
 > `--filter-type <FILTER>`
 >
-> Filter by asset type, where the asset type matches the string entirely
+> Filter by asset type, where the asset type matches the string entirely. Filter by asset type: azure_sql_table, databricks_table, powerbi_dataset, etc
 
 > `--filter-collection <FILTER>`
 >
@@ -173,7 +332,7 @@ List all governance domains in the Microsoft Purview instance.
 
 > `--file <FILE>`
 >
-> The file to write the csv output to
+> The csv file to write the governance domains to
 
 *Examples:*
 
@@ -189,13 +348,47 @@ Delete a governance domain in the Microsoft Purview instance.  The domain cannot
 
 *Parameters:*
 
-> `-d <Governance Domain>`
+> `-d <Governance Domain>` or `--governance-domain <DOMAIN>`
+
+> ⚡ `-s, --silent` ⚡
+>
+> ⚡ Do not confirm, silent delete ⚡
 
 *Examples:*
 
 `purview-import delete-governance-domain -d "My Governance Domain"`
 
 `purview-import delete-governance-domain -d 7417a2b8-7fe4-4307-b6b2-a36706ca4fd3`
+
+------
+
+⚡ **NEW COMMAND** ⚡
+
+## update-governance-domain-status
+
+Update a governance domain status in the Microsoft Purview instance. You can specify the Domain Name or the Domain guid, and the new status which must be Draft, Published, or Expired
+
+*Parameters:*
+
+> `-d, --governance-domain <n>`
+>
+> The governance domain to modify status. Can be name or guid
+
+> `-s, --status <STATUS>`
+>
+> The new governance domain status. Can be Draft, Published, or Expired
+
+> `--dry-run` (Default: True)
+>
+> Do not actually update the domain
+
+*Examples:*
+
+`purview-import update-governance-domain-status -s Published -d "My Governance Domain"`
+
+`purview-import update-governance-domain-status -s Draft -d 7417a2b8-7fe4-4307-b6b2-a36706ca4fd3`
+
+`purview-import update-governance-domain-status --status Published --governance-domain "My Governance Domain"`
 
 ------
 
@@ -220,7 +413,11 @@ Add governance domains to the Microsoft Purview instance using the template as i
 
 > `--file <FILE>`
 >
-> The csv file that contains the data to import
+> The csv file that contains the governance domain data to import
+
+> ⚡ `--owner-only` ⚡
+>
+> ⚡ Only add owners to the governance domain owner role, not to all roles for the governance domain ⚡
 
 > `--dry-run false`
 >
@@ -243,6 +440,42 @@ Add governance domains to the Microsoft Purview instance using the template as i
 `purview-import add-governance-domains --file new_governance_domains.csv --dry-run false`
 
 
+
+------
+
+⚡ **NEW COMMAND** ⚡
+
+## add-domain-roles
+
+Add governance domain role users/groups
+
+*Parameters:*
+
+> `--template`
+>
+> Create a template for governance domains. pipe to a file using > to save the template
+
+> `-d, --governance-domain-id <GOVERNANCE_DOMAIN_ID>`
+>
+> Specify the domain id to add the principals to
+
+> `-f, --file <FILE>`
+>
+> The file that contains the governance domains to create
+
+> `--dry-run` (Default: True)
+>
+> Do not actually create the governance domains
+
+*Examples:*
+
+`purview-import add-domain-roles --template`
+
+`purview-import add-domain-roles --enums`
+
+`purview-import add-domain-roles --file add_to_roles.csv`
+
+`purview-import add-domain-roles --file add_to_roles.csv --dry-run false`
 
 ------
 
@@ -289,7 +522,11 @@ List all glossary terms in the Microsoft Purview instance
 
 > `--file <FILE>`
 >
-> The file to write the csv output to
+> The file to write the csv glossary term output to
+
+> ⚡ `-g, --governance-domain <GOVERNANCE_DOMAIN>` ⚡
+>
+> ⚡ The governance domain to filter by. Name or Id ⚡
 
 *Examples:*
 
@@ -335,21 +572,98 @@ Add glossary terms to the Microsoft Purview instance using the csv template as i
 
 ------
 
-## delete-terms
+⚡ **NEW COMMAND** ⚡
 
-Delete all glossary terms within a specified governance domain in the Microsoft Purview instance
+## update-terms
 
-This currently can only delete ALL terms from the governance domain.
+Update glossary terms in the Microsoft Purview instance. Use the list-terms command to get a list of terms to modify. **NOTE**: this will not change the term's governance domain. To do that, you must delete and re-add the term
 
 *Parameters:*
 
-> `--governance-domain "The Domain Name"`
+> `--template`
 >
-> The governance domain that the terms should be deleted from
+> Create a template for glossary terms. pipe to a file using > to save the template. Leave the id column empty
+
+> `--enums`
+>
+> List enums for use in the glossary terms creation template
+
+> `-f, --file <FILE>`
+>
+> The file that contains the glossary terms to create
+
+> `--dry-run` (Default: True)
+>
+> Do not actually create the glossary terms
+
+*Examples:*
+
+`purview-import update-terms --template`
+
+`purview-import update-terms --enums`
+
+`purview-import update-terms --file terms.csv`
+
+`purview-import update-terms --file terms.csv --dry-run false`
+
+------
+
+
+
+
+## delete-terms
+
+Delete ALL terms in a governance domain.   This will delete the term relationships. Specifically, related terms, synonyms, data product relationships, critical data element relationships, data asset relationships, and critical data column relationships.
+
+*Parameters:*
+
+> `-d, --governance-domain <DOMAIN>`
+>
+> The governance domain to delete ALL glossary terms from
+
+> ⚡ `-s, --silent` ⚡
+>
+> ⚡ When true it will not prompt for confirmation to delete domains ⚡
 
 *Examples:*
 
 `purview-import delete-terms --governance-domain "The Domain Name"`
+
+`purview-import delete-terms --d "The Domain Name"`
+
+------
+
+⚡ **NEW COMMAND** ⚡
+
+## update-term-status
+
+Update the status of a term or many terms. You can specify the Domain Name or the Domain guid that the terms exist in, and the new status which must be Draft, Published, or Expired. You may also specify a term or a comma seperated list of terms to limit the update to. If no terms are specified, all terms in the governance domain will be updated
+
+*Parameters:*
+
+> `-d, --governance-domain <n>`
+>
+> The governance domain to modify status. Can be name or guid
+
+> `-s, --status <STATUS>`
+>
+> The new term status. Can be Draft, Published, or Expired
+
+> `-t, --terms <TERMS>`
+>
+> Term(s) to limit the update to. If there is more than one, use a comma separated list
+
+> `--dry-run` (Default: True)
+>
+> Do not actually update the terms
+
+*Examples:*
+
+`purview-import update-term-status -s Published -d "My Governance Domain"`
+
+`purview-import update-term-status -s Draft -d 7417a2b8-7fe4-4307-b6b2-a36706ca4fd3 -t "MyTerm,MyTerm2"`
+
+`purview-import update-term-status --status Published --governance-domain "My Governance Domain" --terms "MyTerm,MyTerm2"`
 
 ------
 
@@ -379,7 +693,7 @@ List all critical data elements in the Microsoft Purview instance
 
 ## add-cdes
 
-Add critical data elements to the Microsoft Purview instance using the csv template as input
+Add critical data elements to the Microsoft Purview instance using the template as input.
 
 *Parameters:*
 
@@ -390,7 +704,7 @@ Add critical data elements to the Microsoft Purview instance using the csv templ
 
 > `--enums`
 >
-> List enums for use in the add cdes creation template
+> List enums for use in the critical data elements creation template
 
 > `--file <FILE>`
 >
@@ -404,7 +718,7 @@ Add critical data elements to the Microsoft Purview instance using the csv templ
 
 [Status](#status)
 
-[Data Types](#data-types)
+[Data Types (CDE's)](#data-types-cdes)
 
 *Examples:*
 
@@ -440,9 +754,7 @@ List all data products in the Microsoft Purview instance
 
 ## add-data-products
 
-Add data products to the Microsoft Purview instance using the csv template as input. This template is unique, in that it has a column for assetsids (that does NOT require a value), which can be a comma seperated list of guid's that represent data assets that will be associated with the data products immediately during the creation using this command. Saving the step of creating the data product and then associating the assets after the fact during a subsequent step. If no asset id's are specified, the data product is still created as normal.
-
-*See [List Data Assets](#list-assets) for a way to export data assets in this format for easy data-asset/data-product mapping*
+Add data products to the Microsoft Purview instance using the csv template as input.
 
 *Parameters:*
 
@@ -453,7 +765,7 @@ Add data products to the Microsoft Purview instance using the csv template as in
 
 > `--enums`
 >
-> List enums for use in the add data products creation template
+> List enums for use in the data products creation template
 
 > `--file <FILE>`
 >
@@ -495,15 +807,15 @@ Add data product terms relationship to data products to the Microsoft Purview in
 
 > `--enums`
 >
-> List enums for use in the add data product terms relationship creation template
+> List enums for use in the add data product terms relationship creation template ⚡ List enums for use in the data products term relationship creation template ⚡
 
 > `--file <FILE>`
 >
-> The csv file that contains the data to import
+> The csv file that contains the data to import ⚡ The file that contains the data products and terms to create ⚡
 
 > `--dry-run false`
 >
-> specifying whether a command is a dry run or not, the default is true, and must be specified as false explicitly when the command is intended to import data
+> specifying whether a command is a dry run or not, the default is true, and must be specified as false explicitly when the command is intended to import data ⚡ Do not actually create the data product relationships (Default: True) ⚡
 
 *Examples:*
 
@@ -533,7 +845,7 @@ Add data asset relationships to data products in the Microsoft Purview instance.
 
 > `--file <FILE>`
 >
-> The csv file that contains the data to import
+> The csv file that contains the data to import 
 
 > `--dry-run false`
 >
@@ -552,7 +864,7 @@ Add data asset relationships to data products in the Microsoft Purview instance.
 
 ## add-cde-columns
 
-Add data asset column relationships to the CDE's in the Microsoft Purview instance.  The CDE must already exist. 
+Add data asset column relationships to the CDE's in the Microsoft Purview instance.  The CDE must already exist.
 
 *Parameters:*
 
@@ -563,7 +875,7 @@ Add data asset column relationships to the CDE's in the Microsoft Purview instan
 
 > `--enums`
 >
-> List enums for use in the add cde columns creation template
+> List enums for use in the add cde columns creation template 
 
 > `--file <FILE>`
 >
@@ -592,7 +904,7 @@ List all OKRs in the Microsoft Purview instance
 
 > `--file <FILE>`
 >
-> The file to write the csv output to
+> The file to write the csv OKR output to
 
 *Examples:*
 
@@ -655,7 +967,7 @@ List all  OKR Key Results in the Microsoft Purview instance
 
 `purview-import list-key-results`
 
-`purview-import list-key-results--file allkeyresults.csv`
+`purview-import list-key-results --file allkeyresults.csv`
 
 
 
@@ -712,7 +1024,7 @@ List all Data Products associated with OKRs
 
 `purview-import list-okr-dp`
 
-`purview-import list-okr-dp--file allokrdataproducts.csv`
+`purview-import list-okr-dp --file allokrdataproducts.csv`
 
 
 
@@ -748,6 +1060,68 @@ Add Data Product / OKR Relationships to the Microsoft Purview instance using the
 `purview-import add-okr-dp --file newokrdataproducts.csv`
 
 `purview-import add-okr-dp --file newokrdataproducts.csv --dry-run false`
+
+------
+
+⚡ **NEW COMMAND** ⚡
+
+## list-custom-attributes
+
+List all of the custom attributes the Microsoft Purview instance
+
+*Parameters:*
+
+> `-h, --help`
+>
+> Prints help information
+
+> `-f, --file <FILE>`
+>
+> The file to write the attributes to
+
+*Examples:*
+
+`purview-import list-custom-attributes`
+
+------
+
+⚡ **NEW COMMAND** ⚡
+
+## add-custom-attributes
+
+Add custom attributes to the Microsoft Purview instance
+
+*Parameters:*
+
+> `--template`
+>
+> Create a template for adding critical data elements. pipe to a file using > to save the template. Leave the id column empty
+
+> `--enums`
+>
+> List enums for use in the critical data elements creation template
+
+> `-g, --group`
+>
+> The attribute group that the custom attributes should be in
+
+> `-f, --file <FILE>`
+>
+> The file that contains the critical data elements to create
+
+> `--dry-run` (Default: True)
+>
+> Do not actually create the critical data elements
+
+*Examples:*
+
+`purview-import add-custom-attributes --template`
+
+`purview-import add-custom-attributes --enums`
+
+`purview-import add-custom-attributes --file new_attributes.csv`
+
+`purview-import add-custom-attributes --file new_attributes.csv --dry-run false`
 
 ------
 

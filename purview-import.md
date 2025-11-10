@@ -570,6 +570,16 @@ Add glossary terms to the Microsoft Purview instance using the csv template as i
 
 `purview-import add-terms --file new_terms.csv --dry-run false`
 
+### Special note on formatting of certain columns
+
+Some columns accept structured data as key/value pairs within a single cell. Format these values using a semicolon (;) to separate each key from its value, and a comma (,) to separate multiple pairs. For example: 
+
+`"user@domain.com;Interim data steward,group-name;data owner group,principal-name;service principal that owns the term"`
+
+This represents three key/value pairs. Ensure there are no spaces around the delimiters unless they are part of the actual key or value.
+
+The columns that use this format are owners, experts, and resources.   Resources is mandatory to have the key/value pair, where the value is a url to link to the resource.  Owners and experts, this format is optional, and if there is no semicolon and subsequent value after, the user is added as the owner or expert, and the default description is used.
+
 ------
 
 ⚡ **NEW COMMAND** ⚡

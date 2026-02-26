@@ -247,19 +247,33 @@ List all glossaries and their terms from the classic Azure Purview instance. Sup
 
 ```
 purview-import list-glossaries
+```
 
+```
 purview-import list-glossaries --csv > glossarylist.csv
+```
 
+```
 purview-import list-glossaries --filter-glossaries "my glossary" --filter-terms "my term,other term"
+```
 
+```
 purview-import list-glossaries --filter-by-parent "My Parent Term"
+```
 
+```
 purview-import list-glossaries --filter-glossaries "my glossary" --filter-by-parent "My Parent Term"
+```
 
+```
 purview-import list-glossaries --create-import-file glossary-terms.csv
+```
 
+```
 purview-import list-glossaries --create-import-file glossary-terms.csv -d "Target Domain" --remove-parent
+```
 
+```
 purview-import list-glossaries --create-import-file glossary-terms.csv --use-glossary-contacts-when-empty
 ```
 
@@ -283,7 +297,9 @@ Delete a glossary from the classic Azure Purview instance. Optionally delete all
 
 ```
 purview-import delete-glossary --glossary glossary1
+```
 
+```
 purview-import delete-glossary --glossary glossary1 --delete-terms true
 ```
 
@@ -303,7 +319,9 @@ List all term templates in the classic Azure Purview instance. Term templates de
 
 ```
 purview-import list-term-templates
+```
 
+```
 purview-import list-term-templates --file templates.csv
 ```
 
@@ -331,9 +349,13 @@ Export all custom term template attribute values from terms in the classic Azure
 
 ```
 purview-import export-term-template-values --file termtemplatevalues.csv
+```
 
+```
 purview-import export-term-template-values --filter-glossaries "my glossary" --file termtemplatevalues.csv
+```
 
+```
 purview-import export-term-template-values --filter-terms "term1,term2" --file filtered_values.csv
 ```
 
@@ -387,17 +409,29 @@ The exported lists respect all filtering parameters. Assets can be exported as a
 
 ```
 purview-import list-assets
+```
 
+```
 purview-import list-assets --file all_assets.csv
+```
 
+```
 purview-import list-assets --data-product-file all_assets_as_data_product_import.csv
+```
 
+```
 purview-import list-assets --filter-type powerbi_dataset --data-product-file powerbi_data_products.csv
+```
 
+```
 purview-import list-assets -t --data-product-file sql_tables_as_data_products.csv
+```
 
+```
 purview-import list-assets -i --search "sales" --file sales_assets.csv
+```
 
+```
 purview-import list-assets --filter-collection "Finance" --file finance_assets.csv
 ```
 
@@ -429,9 +463,13 @@ Retrieve a single asset/entity from the Azure Purview (Atlas) catalog by its GUI
 
 ```
 purview-import asset-by-id --guid 3f2504e0-4f89-11d3-9a0c-0305e82c3301
+```
 
+```
 purview-import asset-by-id -g 3f2504e0-4f89-11d3-9a0c-0305e82c3301 --raw
+```
 
+```
 purview-import asset-by-id -g 3f2504e0-4f89-11d3-9a0c-0305e82c3301 --min-ext-info --ignore-relationships
 ```
 
@@ -460,10 +498,14 @@ Delete an asset from the Azure Purview (Atlas) catalog by its GUID. In interacti
 ```
 # Interactive mode — shows asset details and prompts for confirmation
 purview-import asset-delete -g 3f2504e0-4f89-11d3-9a0c-0305e82c3301
+```
 
+```
 # Dry run — validates the asset exists but does not delete
 purview-import asset-delete -g 3f2504e0-4f89-11d3-9a0c-0305e82c3301 --dry-run true
+```
 
+```
 # Silent delete — no prompt, actually deletes
 purview-import asset-delete -g 3f2504e0-4f89-11d3-9a0c-0305e82c3301 --silent --dry-run false
 ```
@@ -492,11 +534,17 @@ List all collections in the Azure Purview instance in a hierarchical tree format
 
 ```
 purview-import list-asset-collections
+```
 
+```
 purview-import list-asset-collections -s "Finance"
+```
 
+```
 purview-import list-asset-collections --file collections.csv
+```
 
+```
 purview-import list-asset-collections --csv > collections.csv
 ```
 
@@ -524,9 +572,13 @@ Create custom dataset type definitions in the Azure Purview (Atlas) instance usi
 
 ```
 purview-import create-dataset-definition --template > dataset_definition.json
+```
 
+```
 purview-import create-dataset-definition --file dataset_definition.json
+```
 
+```
 purview-import create-dataset-definition --file dataset_definition.json --dry-run false
 ```
 
@@ -554,9 +606,13 @@ Update existing custom dataset type definitions in the Azure Purview (Atlas) ins
 
 ```
 purview-import update-dataset-definition --template > dataset_definition.json
+```
 
+```
 purview-import update-dataset-definition --file dataset_definition.json
+```
 
+```
 purview-import update-dataset-definition --file dataset_definition.json --dry-run false
 ```
 
@@ -588,9 +644,13 @@ Create custom dataset entities (tables and columns) in the Azure Purview (Atlas)
 
 ```
 purview-import create-dataset-entities --template > dataset_entities.json
+```
 
+```
 purview-import create-dataset-entities --file dataset_entities.json
+```
 
+```
 purview-import create-dataset-entities --file dataset_entities.json -c my-collection-id --dry-run false
 ```
 
@@ -622,9 +682,13 @@ Update existing custom dataset entities (tables and columns) in the Azure Purvie
 
 ```
 purview-import update-dataset-entities --template > dataset_entities.json
+```
 
+```
 purview-import update-dataset-entities --file dataset_entities.json
+```
 
+```
 purview-import update-dataset-entities --file dataset_entities.json -c new-collection-id --dry-run false
 ```
 
@@ -661,7 +725,9 @@ Create a parent/child (container/contained) relationship between assets in the A
 ```
 # Single relationship
 purview-import create-asset-relationship --parent aaa-bbb-ccc --child ddd-eee-fff --dry-run false
+```
 
+```
 # Bulk from CSV
 purview-import create-asset-relationship --template > relationships.csv
 purview-import create-asset-relationship --file relationships.csv
@@ -705,7 +771,9 @@ Create enum definitions for managed attribute choice/multi-choice fields in the 
 ```
 # Single enum inline
 purview-import create-managed-attribute-enum --name ATTRIBUTE_ENUM_STATUS --choices "Active,Inactive,Deprecated" --dry-run false
+```
 
+```
 # From JSON file
 purview-import create-managed-attribute-enum --template > enums.json
 purview-import create-managed-attribute-enum --file enums.json
@@ -736,9 +804,13 @@ Create managed attribute group definitions in the Azure Purview (Atlas) instance
 
 ```
 purview-import create-managed-attributes --template > managed_attributes.json
+```
 
+```
 purview-import create-managed-attributes --file managed_attributes.json
+```
 
+```
 purview-import create-managed-attributes --file managed_attributes.json --dry-run false
 ```
 
@@ -760,7 +832,9 @@ List all governance domains in the Microsoft Purview instance. Displays to scree
 
 ```
 purview-import list-governance-domains
+```
 
+```
 purview-import list-governance-domains --file governance_domains.csv
 ```
 
@@ -804,13 +878,21 @@ By default, owners specified in the import file are added to ALL roles for the g
 
 ```
 purview-import add-governance-domains --template > new_governance_domains.csv
+```
 
+```
 purview-import add-governance-domains --enums
+```
 
+```
 purview-import add-governance-domains --file new_governance_domains.csv
+```
 
+```
 purview-import add-governance-domains --file new_governance_domains.csv --dry-run false
+```
 
+```
 purview-import add-governance-domains --file new_governance_domains.csv --owner-only --dry-run false
 ```
 
@@ -834,9 +916,13 @@ Delete a governance domain in the Microsoft Purview instance. The domain cannot 
 
 ```
 purview-import delete-governance-domain -d "My Governance Domain"
+```
 
+```
 purview-import delete-governance-domain -d 7417a2b8-7fe4-4307-b6b2-a36706ca4fd3
+```
 
+```
 purview-import delete-governance-domain -d "My Governance Domain" --silent
 ```
 
@@ -864,9 +950,13 @@ Update the status of a governance domain in the Microsoft Purview instance. You 
 
 ```
 purview-import update-governance-domain-status -s Published -d "My Governance Domain"
+```
 
+```
 purview-import update-governance-domain-status -s Draft -d 7417a2b8-7fe4-4307-b6b2-a36706ca4fd3
+```
 
+```
 purview-import update-governance-domain-status --status Published --governance-domain "My Governance Domain" --dry-run false
 ```
 
@@ -898,7 +988,9 @@ This does not use an import file — it is an ad-hoc tool to quickly add a user 
 
 ```
 purview-import add-governance-domain-owners -d 5d32b66f-809b-4199-a790-3dc3045c4f48 --owners test@emaildomain.com,296f90df-3cd5-4ec2-8de9-24b262e9286f
+```
 
+```
 purview-import add-governance-domain-owners -d 5d32b66f-809b-4199-a790-3dc3045c4f48 --owners test@emaildomain.com --owner-only
 ```
 
@@ -930,11 +1022,17 @@ Assign users or groups to governance domain roles (e.g., Data Owner, Data Stewar
 
 ```
 purview-import add-domain-roles --template > add_to_roles.csv
+```
 
+```
 purview-import add-domain-roles --enums
+```
 
+```
 purview-import add-domain-roles --file add_to_roles.csv
+```
 
+```
 purview-import add-domain-roles --file add_to_roles.csv --dry-run false
 ```
 
@@ -966,11 +1064,17 @@ List all glossary terms in the Microsoft Purview instance. Supports filtering by
 
 ```
 purview-import list-terms
+```
 
+```
 purview-import list-terms --file allterms.csv
+```
 
+```
 purview-import list-terms -g "Finance Domain" --file finance_terms.csv
+```
 
+```
 purview-import list-terms --file allterms_with_attributes.csv --attributes
 ```
 
@@ -1006,11 +1110,17 @@ Add glossary terms to the Microsoft Purview instance from a CSV file. Use `--tem
 
 ```
 purview-import add-terms --template > new_terms.csv
+```
 
+```
 purview-import add-terms --enums
+```
 
+```
 purview-import add-terms --file new_terms.csv
+```
 
+```
 purview-import add-terms --file new_terms.csv --dry-run false
 ```
 
@@ -1044,11 +1154,17 @@ Update existing glossary terms in the Microsoft Purview instance from a CSV file
 
 ```
 purview-import update-terms --template > terms_template.csv
+```
 
+```
 purview-import update-terms --enums
+```
 
+```
 purview-import update-terms --file terms.csv
+```
 
+```
 purview-import update-terms --file terms.csv --dry-run false
 ```
 
@@ -1074,7 +1190,9 @@ Prompts for confirmation unless `--silent` is used. Specify the governance domai
 
 ```
 purview-import delete-terms --governance-domain "The Domain Name"
+```
 
+```
 purview-import delete-terms -d "The Domain Name" --silent
 ```
 
@@ -1106,9 +1224,13 @@ Update the status of one or many glossary terms within a governance domain. You 
 
 ```
 purview-import update-term-status -s Published -d "My Governance Domain" --dry-run false
+```
 
+```
 purview-import update-term-status -s Draft -d 7417a2b8-7fe4-4307-b6b2-a36706ca4fd3 -t "MyTerm,MyTerm2"
+```
 
+```
 purview-import update-term-status --status Published --governance-domain "My Governance Domain" --terms "MyTerm,MyTerm2" --dry-run false
 ```
 
@@ -1138,11 +1260,17 @@ List all data products in the Microsoft Purview instance. Supports filtering by 
 
 ```
 purview-import list-data-products
+```
 
+```
 purview-import list-data-products --file alldataproducts.csv
+```
 
+```
 purview-import list-data-products -g "Finance Domain" --file finance_products.csv
+```
 
+```
 purview-import list-data-products --file all_with_attrs.csv --attributes
 ```
 
@@ -1182,11 +1310,17 @@ Add data products to the Microsoft Purview instance from a CSV file. Use `--temp
 
 ```
 purview-import add-data-products --template > new_dataproducts.csv
+```
 
+```
 purview-import add-data-products --enums
+```
 
+```
 purview-import add-data-products --file new_dataproducts.csv
+```
 
+```
 purview-import add-data-products --file new_dataproducts.csv --dry-run false
 ```
 
@@ -1218,11 +1352,17 @@ Update existing data products in the Microsoft Purview instance from a CSV file.
 
 ```
 purview-import update-data-products --template > dp_template.csv
+```
 
+```
 purview-import update-data-products --enums
+```
 
+```
 purview-import update-data-products --file updated_dataproducts.csv
+```
 
+```
 purview-import update-data-products --file updated_dataproducts.csv --dry-run false
 ```
 
@@ -1254,9 +1394,13 @@ Associate glossary terms with data products in the Microsoft Purview instance fr
 
 ```
 purview-import add-data-product-terms --template > dp_terms.csv
+```
 
+```
 purview-import add-data-product-terms --file dp_terms.csv
+```
 
+```
 purview-import add-data-product-terms --file dp_terms.csv --dry-run false
 ```
 
@@ -1288,9 +1432,13 @@ Associate data assets with data products in the Microsoft Purview instance from 
 
 ```
 purview-import add-data-product-assets --template > dp_assets.csv
+```
 
+```
 purview-import add-data-product-assets --file dp_assets.csv
+```
 
+```
 purview-import add-data-product-assets --file dp_assets.csv --dry-run false
 ```
 
@@ -1312,7 +1460,9 @@ List all critical data elements in the Microsoft Purview instance.
 
 ```
 purview-import list-cdes
+```
 
+```
 purview-import list-cdes --file allcdes.csv
 ```
 
@@ -1350,11 +1500,17 @@ Add critical data elements to the Microsoft Purview instance from a CSV file. Us
 
 ```
 purview-import add-cdes --template > new_cdes.csv
+```
 
+```
 purview-import add-cdes --enums
+```
 
+```
 purview-import add-cdes --file new_cdes.csv
+```
 
+```
 purview-import add-cdes --file new_cdes.csv --dry-run false
 ```
 
@@ -1386,11 +1542,17 @@ Update existing critical data elements in the Microsoft Purview instance from a 
 
 ```
 purview-import update-cdes --template > cde_template.csv
+```
 
+```
 purview-import update-cdes --enums
+```
 
+```
 purview-import update-cdes --file updated_cdes.csv
+```
 
+```
 purview-import update-cdes --file updated_cdes.csv --dry-run false
 ```
 
@@ -1422,9 +1584,13 @@ Associate glossary terms with critical data elements in the Microsoft Purview in
 
 ```
 purview-import add-cde-terms --template > cde_terms.csv
+```
 
+```
 purview-import add-cde-terms --file cde_terms.csv
+```
 
+```
 purview-import add-cde-terms --file cde_terms.csv --dry-run false
 ```
 
@@ -1456,9 +1622,13 @@ Associate data asset columns with critical data elements in the Microsoft Purvie
 
 ```
 purview-import add-cde-columns --template > cde_columns.csv
+```
 
+```
 purview-import add-cde-columns --file cde_columns.csv
+```
 
+```
 purview-import add-cde-columns --file cde_columns.csv --dry-run false
 ```
 
@@ -1480,7 +1650,9 @@ List all OKRs (Objectives and Key Results) in the Microsoft Purview instance.
 
 ```
 purview-import list-okrs
+```
 
+```
 purview-import list-okrs --file allokrs.csv
 ```
 
@@ -1516,11 +1688,17 @@ Add OKRs to the Microsoft Purview instance from a CSV file. Use `--template` to 
 
 ```
 purview-import add-okrs --template > new_okrs.csv
+```
 
+```
 purview-import add-okrs --enums
+```
 
+```
 purview-import add-okrs --file new_okrs.csv
+```
 
+```
 purview-import add-okrs --file new_okrs.csv --dry-run false
 ```
 
@@ -1540,7 +1718,9 @@ List all OKR Key Results in the Microsoft Purview instance.
 
 ```
 purview-import list-key-results
+```
 
+```
 purview-import list-key-results --file allkeyresults.csv
 ```
 
@@ -1576,11 +1756,17 @@ Add OKR Key Results to the Microsoft Purview instance from a CSV file. Use `--te
 
 ```
 purview-import add-key-results --template > newkeyresults.csv
+```
 
+```
 purview-import add-key-results --enums
+```
 
+```
 purview-import add-key-results --file newkeyresults.csv
+```
 
+```
 purview-import add-key-results --file newkeyresults.csv --dry-run false
 ```
 
@@ -1600,7 +1786,9 @@ List all Data Products associated with OKRs in the Microsoft Purview instance.
 
 ```
 purview-import list-okr-dp
+```
 
+```
 purview-import list-okr-dp --file allokrdataproducts.csv
 ```
 
@@ -1632,9 +1820,13 @@ Associate Data Products with OKRs in the Microsoft Purview instance from a CSV f
 
 ```
 purview-import add-okr-dp --template > okr_dp.csv
+```
 
+```
 purview-import add-okr-dp --file okr_dp.csv
+```
 
+```
 purview-import add-okr-dp --file okr_dp.csv --dry-run false
 ```
 
@@ -1656,7 +1848,9 @@ List all custom attribute definitions in the Microsoft Purview instance. Optiona
 
 ```
 purview-import list-custom-attributes
+```
 
+```
 purview-import list-custom-attributes --file custom_attributes.csv
 ```
 
@@ -1692,11 +1886,17 @@ Add custom attributes to the Microsoft Purview instance from a CSV file. Use `-g
 
 ```
 purview-import add-custom-attributes --template > new_attributes.csv
+```
 
+```
 purview-import add-custom-attributes --enums
+```
 
+```
 purview-import add-custom-attributes -g "My Attribute Group" --file new_attributes.csv
+```
 
+```
 purview-import add-custom-attributes -g "My Attribute Group" --file new_attributes.csv --dry-run false
 ```
 
@@ -1762,24 +1962,36 @@ This is a common scenario when moving from the classic Azure Purview glossary to
 ```bash
 # 1. Set up credentials
 purview-import credentials --client-id <CLIENT_ID> --client-secret <SECRET> --tenant-id <TENANT_ID>
+```
 
+```bash
 # 2. List existing glossaries and export as an import file
 purview-import list-glossaries --create-import-file migration_terms.csv
+```
 
+```bash
 # 3. (Optional) Target a single governance domain instead of using glossary names
 purview-import list-glossaries --create-import-file migration_terms.csv -d "Enterprise Data Domain"
+```
 
+```bash
 # 4. Create the governance domain if it doesn't exist
 purview-import add-governance-domains --template > domains.csv
 # ... edit domains.csv ...
 purview-import add-governance-domains --file domains.csv --dry-run false
+```
 
+```bash
 # 5. Dry run the term import to validate
 purview-import add-terms --file migration_terms.csv
+```
 
+```bash
 # 6. Import for real
 purview-import add-terms --file migration_terms.csv --dry-run false
+```
 
+```bash
 # 7. Publish the terms
 purview-import update-term-status -s Published -d "Enterprise Data Domain" --dry-run false
 ```
@@ -1791,25 +2003,35 @@ purview-import update-term-status -s Published -d "Enterprise Data Domain" --dry
 purview-import add-governance-domains --template > domain.csv
 # ... fill in domain.csv ...
 purview-import add-governance-domains --file domain.csv --dry-run false
+```
 
+```bash
 # 2. Add owners
 purview-import add-governance-domain-owners -d <DOMAIN_GUID> --owners admin@company.com
+```
 
+```bash
 # 3. Add role assignments
 purview-import add-domain-roles --template > roles.csv
 # ... fill in roles.csv ...
 purview-import add-domain-roles --file roles.csv --dry-run false
+```
 
+```bash
 # 4. Add glossary terms
 purview-import add-terms --template > terms.csv
 # ... fill in terms.csv ...
 purview-import add-terms --file terms.csv --dry-run false
+```
 
+```bash
 # 5. Add data products
 purview-import add-data-products --template > products.csv
 # ... fill in products.csv ...
 purview-import add-data-products --file products.csv --dry-run false
+```
 
+```bash
 # 6. Link terms to data products
 purview-import add-data-product-terms --template > dp_terms.csv
 # ... fill in dp_terms.csv ...
@@ -1821,10 +2043,14 @@ purview-import add-data-product-terms --file dp_terms.csv --dry-run false
 ```bash
 # 1. List all assets and export in data product format
 purview-import list-assets --data-product-file assets_as_products.csv
+```
 
+```bash
 # 2. Filter to just SQL tables
 purview-import list-assets -t --data-product-file sql_products.csv
+```
 
+```bash
 # 3. Edit the CSV to set governance domains, descriptions, etc.
 # 4. Import as data products
 purview-import add-data-products --file sql_products.csv --dry-run false
@@ -1837,20 +2063,28 @@ purview-import add-data-products --file sql_products.csv --dry-run false
 purview-import create-dataset-definition --template > type_def.json
 # ... edit type_def.json ...
 purview-import create-dataset-definition --file type_def.json --dry-run false
+```
 
+```bash
 # 2. Create enum definitions for managed attributes (if needed)
 purview-import create-managed-attribute-enum --name ATTRIBUTE_ENUM_STATUS --choices "Active,Inactive,Deprecated" --dry-run false
+```
 
+```bash
 # 3. Create managed attribute groups
 purview-import create-managed-attributes --template > managed_attrs.json
 # ... edit managed_attrs.json ...
 purview-import create-managed-attributes --file managed_attrs.json --dry-run false
+```
 
+```bash
 # 4. Create entities using the type definition
 purview-import create-dataset-entities --template > entities.json
 # ... edit entities.json ...
 purview-import create-dataset-entities --file entities.json -c my-collection --dry-run false
+```
 
+```bash
 # 5. Create parent/child relationships between entities
 purview-import create-asset-relationship --template > relationships.csv
 # ... edit relationships.csv ...

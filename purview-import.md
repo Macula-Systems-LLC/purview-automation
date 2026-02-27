@@ -1198,6 +1198,50 @@ purview-import delete-terms -d "The Domain Name" --silent
 
 ------
 
+### add-related-terms
+
+Create Related or Synonym relationships between glossary terms in the Microsoft Purview instance from a CSV file. Each row defines a relationship between two terms. The `relatedtermdomain` column is only required when the related term lives in a different governance domain than the source term; if left blank, the tool assumes both terms are in the same domain.
+
+*Parameters:*
+
+> `--template`
+>
+> Output the CSV template headers to the console. Pipe to a file using `> filename.csv`. See [Template Example](templates/add-related-terms.md).
+
+> `--enums`
+>
+> List valid enum values for relationship types.
+>
+> **Relationship Type**: `Related`, `Synonym`
+
+> `-f, --file`
+>
+> The CSV file that contains the term relationships to create.
+
+> `--dry-run` (Default: true)
+>
+> Validate the CSV file without creating the relationships. Set to `false` to import.
+
+*Examples:*
+
+```
+purview-import add-related-terms --template > related_terms.csv
+```
+
+```
+purview-import add-related-terms --enums
+```
+
+```
+purview-import add-related-terms --file related_terms.csv
+```
+
+```
+purview-import add-related-terms --file related_terms.csv --dry-run false
+```
+
+------
+
 ### update-term-status
 
 Update the status of one or many glossary terms within a governance domain. You can specify the domain by name or GUID, and the new status which must be Draft, Published, or Expired. Optionally limit the update to specific terms using `--terms`. If no terms are specified, all terms in the governance domain will be updated.
@@ -1408,7 +1452,13 @@ purview-import add-data-product-terms --file dp_terms.csv --dry-run false
 
 ### add-data-product-assets
 
-Associate data assets with data products in the Microsoft Purview instance from a CSV file. The data products must already exist, and the data asset must be specified by a GUID identifier. This supports two different IDs depending on how the asset was created.
+Associate data assets with data products in the Microsoft Purview instance from a CSV file. The data products must already exist. Each row identifies the data product and a data asset to associate with it.
+
+The data asset can be identified in one of three ways (provide exactly one per row):
+
+1. **`dataassetid`** — the Atlas GUID of the asset.
+2. **`collectionname` + `tablename`** — the collection and table name; the tool resolves the GUID.
+3. **`fqn`** — the fully qualified name of the asset; the tool queries the data map to resolve the GUID.
 
 *Parameters:*
 
@@ -1598,7 +1648,13 @@ purview-import add-cde-terms --file cde_terms.csv --dry-run false
 
 ### add-cde-columns
 
-Associate data asset columns with critical data elements in the Microsoft Purview instance from a CSV file. The CDEs must already exist.
+Associate data asset columns with critical data elements in the Microsoft Purview instance from a CSV file. The CDEs must already exist. Each row links one column from a data asset to a CDE.
+
+The column's parent data asset can be identified in one of three ways (provide exactly one per row):
+
+1. **`assetid` + `columnname`** — the Atlas GUID of the table asset plus the column name.
+2. **`collectionname` + `tablename` + `columnname`** — the collection, table, and column name; the tool resolves the asset GUID.
+3. **`fqn`** — the fully qualified name of the column; the tool queries the data map to resolve both the column and its parent asset.
 
 *Parameters:*
 

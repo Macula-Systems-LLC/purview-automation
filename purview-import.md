@@ -437,6 +437,122 @@ purview-import list-assets --filter-collection "Finance" --file finance_assets.c
 
 ------
 
+### export-table-metadata
+
+Export table metadata (including managed/business attributes) from a specific collection. Displays a summary to the screen and optionally writes the full data to a CSV file.
+
+The output CSV has four fixed columns — `TableId`, `FQN`, `Name`, `Description` — followed by dynamic columns for every business attribute discovered across the tables. Dynamic columns use the format `GroupName.AttributeName` (e.g. `DataClassification.Level`) and are sorted alphabetically.
+
+*Parameters:*
+
+> `-c, --collection-id`
+>
+> The collection ID (name) or friendly name to filter tables by.
+
+> `-f, --file`
+>
+> Write the table metadata to a CSV file.
+
+*Examples:*
+
+```
+purview-import export-table-metadata --collection-id my-collection
+```
+
+```
+purview-import export-table-metadata -c "My Collection" --file table_metadata.csv
+```
+
+------
+
+### import-table-metadata
+
+Import table metadata (including managed/business attributes) from a CSV file. The file should be in the same format as `export-table-metadata` output. Validates all values against Purview's managed attribute definitions and enum types before updating. Updates are sent in batches of 25 entities.
+
+The CSV must include the fixed columns `TableId` and `Name`. Any additional columns beyond the four fixed columns (`TableId`, `FQN`, `Name`, `Description`) are treated as business attribute values using the `GroupName.AttributeName` naming convention. Empty cells are set to null.
+
+Supported data types for business attribute values: `string`, `richtext`, `int`, `long`, `float`, `double`, `boolean`, `date` (epoch ms or ISO 8601), `short`, `byte`, enum types, and `array<T>` (semicolon-separated values).
+
+*Parameters:*
+
+> `-f, --file`
+>
+> The CSV file to import table metadata from (same format as `export-table-metadata` output).
+
+> `-d, --dry-run` (Default: true)
+>
+> Validate the CSV data without updating Purview. Set to `false` to apply changes.
+
+*Examples:*
+
+```
+purview-import import-table-metadata --file table_metadata.csv
+```
+
+```
+purview-import import-table-metadata --file table_metadata.csv --dry-run false
+```
+
+------
+
+### export-column-metadata
+
+Export column metadata (including managed/business attributes) for all tables in a specific collection. One row per column. Displays a summary to the screen and optionally writes the full data to a CSV file.
+
+The output CSV has six fixed columns — `TableId`, `TableName`, `ColumnId`, `FQN`, `Name`, `Description` — followed by dynamic columns for every business attribute discovered across the columns. Dynamic columns use the format `GroupName.AttributeName` and are sorted alphabetically.
+
+*Parameters:*
+
+> `-c, --collection-id`
+>
+> The collection ID (name) or friendly name to filter tables by.
+
+> `-f, --file`
+>
+> Write the column metadata to a CSV file.
+
+*Examples:*
+
+```
+purview-import export-column-metadata --collection-id my-collection
+```
+
+```
+purview-import export-column-metadata -c "My Collection" --file column_metadata.csv
+```
+
+------
+
+### import-column-metadata
+
+Import column metadata (including managed/business attributes) from a CSV file. The file should be in the same format as `export-column-metadata` output. Validates all values against Purview's managed attribute definitions and enum types before updating. Updates are sent in batches of 25 entities.
+
+The CSV must include the fixed columns `ColumnId`, `Name`, and `TableId`. Any additional columns beyond the six fixed columns (`TableId`, `TableName`, `ColumnId`, `FQN`, `Name`, `Description`) are treated as business attribute values using the `GroupName.AttributeName` naming convention. Empty cells are set to null.
+
+Supported data types for business attribute values: `string`, `richtext`, `int`, `long`, `float`, `double`, `boolean`, `date` (epoch ms or ISO 8601), `short`, `byte`, enum types, and `array<T>` (semicolon-separated values).
+
+*Parameters:*
+
+> `-f, --file`
+>
+> The CSV file to import column metadata from (same format as `export-column-metadata` output).
+
+> `-d, --dry-run` (Default: true)
+>
+> Validate the CSV data without updating Purview. Set to `false` to apply changes.
+
+*Examples:*
+
+```
+purview-import import-column-metadata --file column_metadata.csv
+```
+
+```
+purview-import import-column-metadata --file column_metadata.csv --dry-run false
+```
+
+------
+
 ### asset-by-id
 
 Retrieve a single asset/entity from the Azure Purview (Atlas) catalog by its GUID. Displays formatted asset details by default, or raw JSON with `--raw`. Useful for inspecting an asset's full metadata, relationships, and attributes.
